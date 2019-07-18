@@ -32,15 +32,15 @@
         android:layout_toEndOf="@id/edittext_insert"
         android:text="insert" />
 
-    <EditText
-        android:id="@+id/edittext_remove"
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="272dp"
-        android:layout_marginBottom="23dp"
-        android:inputType="number" />
+        <EditText
+            android:id="@+id/edittext_remove"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="272dp"
+            android:layout_marginBottom="23dp"
+            android:inputType="number" />
 
     <Button
         android:id="@+id/button_remove"

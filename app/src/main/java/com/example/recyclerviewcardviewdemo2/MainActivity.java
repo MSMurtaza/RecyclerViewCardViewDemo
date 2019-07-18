@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -75,12 +76,16 @@ public class MainActivity extends AppCompatActivity {
         buttonInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String userInput = editTextInsert.getText().toString();
+                if (TextUtils.isEmpty(userInput)) {
+                    Toast.makeText(MainActivity.this, "Enter numeric value first", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 int position = Integer.parseInt(editTextInsert.getText().toString());
                 if (position <= mExampleList.size()) {
                     insertItem(position);
                     mAdapter.notifyItemInserted(position);
-                } else if (editTextInsert.getText().toString()) {
-                    Toast.makeText(MainActivity.this, "Enter numeric value first", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(MainActivity.this, "Enter proper position to insert item", Toast.LENGTH_LONG).show();
                 }
@@ -92,14 +97,15 @@ public class MainActivity extends AppCompatActivity {
         buttonRemove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (editTextRemove.getText().toString().equals("")) {
+                    Toast.makeText(MainActivity.this, "Enter numeric value first", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 int position = Integer.parseInt(editTextRemove.getText().toString());
                 if (position <= mExampleList.size()) {
                     removeItem(position);
                     mAdapter.notifyItemRemoved(position);
-                } else if (position >= mExampleList.size() || position == mExampleList.size()) {
-                    Toast.makeText(MainActivity.this, "Enter value ranging from " + "0 to " + mExampleList.size(), Toast.LENGTH_SHORT).show();
-                } else if (!editTextRemove.getText().toString().equals(" ")) {
-                    Toast.makeText(MainActivity.this, "Enter numeric value", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(MainActivity.this, "Enter proper position to remove item", Toast.LENGTH_SHORT).show();
                 }
