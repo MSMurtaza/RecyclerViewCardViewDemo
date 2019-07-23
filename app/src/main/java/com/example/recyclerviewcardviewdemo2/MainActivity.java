@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
 
         handleButtonInsertClick();
         handleButtonRemoveClick();
-
     }
 
     public void createExampleList() {
@@ -76,8 +75,7 @@ public class MainActivity extends AppCompatActivity {
         buttonInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String userInput = editTextInsert.getText().toString();
-                if (TextUtils.isEmpty(userInput)) {
+                if (TextUtils.isEmpty(editTextInsert.getText().toString())) {
                     Toast.makeText(MainActivity.this, "Enter numeric value first", Toast.LENGTH_SHORT).show();
                     return;
                 }
