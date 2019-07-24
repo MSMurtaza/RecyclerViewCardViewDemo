@@ -100,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
+                // this is my changing
                 int position = Integer.parseInt(editTextRemove.getText().toString());
                 if (position <= mExampleList.size()) {
                     removeItem(position);
