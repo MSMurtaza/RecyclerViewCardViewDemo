@@ -83,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
                 int position = Integer.parseInt(editTextInsert.getText().toString());
                 if (position <= mExampleList.size()) {
                     insertItem(position);
-                    //mAdapter.notifyItemInserted(position);
                 } else {
                     Toast.makeText(MainActivity.this, "Please enter a digit to insert item at that position", Toast.LENGTH_LONG).show();
                 }
@@ -103,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
                 int position = Integer.parseInt(editTextRemove.getText().toString());
                 if (position < mExampleList.size()) {
                     removeItem(position);
-                    //mAdapter.notifyItemRemoved(position);
                 } else {
                     Toast.makeText(MainActivity.this, "Please enter a digit to remove item from that position", Toast.LENGTH_SHORT).show();
                 }
