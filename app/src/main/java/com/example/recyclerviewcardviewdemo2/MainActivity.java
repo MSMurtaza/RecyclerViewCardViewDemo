@@ -76,16 +76,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (TextUtils.isEmpty(editTextInsert.getText().toString())) {
-                    Toast.makeText(MainActivity.this, "Enter numeric value first", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Please enter numeric value", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 int position = Integer.parseInt(editTextInsert.getText().toString());
                 if (position <= mExampleList.size()) {
                     insertItem(position);
-                    mAdapter.notifyItemInserted(position);
+                    //mAdapter.notifyItemInserted(position);
                 } else {
-                    Toast.makeText(MainActivity.this, "Enter proper position to insert item", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, "Please enter a digit to insert item at that position", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -96,16 +96,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (editTextRemove.getText().toString().equals("")) {
-                    Toast.makeText(MainActivity.this, "Enter numeric value first", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Please enter digit to remove item", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 int position = Integer.parseInt(editTextRemove.getText().toString());
-                if (position <= mExampleList.size()) {
+                if (position < mExampleList.size()) {
                     removeItem(position);
-                    mAdapter.notifyItemRemoved(position);
+                    //mAdapter.notifyItemRemoved(position);
                 } else {
-                    Toast.makeText(MainActivity.this, "Enter proper position to remove item", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Please enter a digit to remove item from that position", Toast.LENGTH_SHORT).show();
                 }
             }
         });
